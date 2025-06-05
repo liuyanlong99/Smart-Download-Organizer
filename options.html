@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>下载路径规则配置 - Smart Download Organizer</title>
+  <link rel="stylesheet" href="root.css">
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <div class="logo">DL</div>
+      <div>
+        <h1 id="title">下载路径规则配置</h1>
+        <div class="description" id="subtitle">为不同域名配置个性化的下载路径和组织方式</div>
+      </div>
+    </div>
+    
+    <div class="language-switcher">
+      <button class="lang-btn active" data-lang="zh">中文</button>
+      <button class="lang-btn" data-lang="en">English</button>
+    </div>
+  </header>
+
+  <div class="section">
+    <div class="section-title">
+      <i>📁</i> <span id="defaultSettingsTitle">默认分类设置</span>
+    </div>
+    <div class="section-content">
+      <p id="defaultSettingsDesc">设置未匹配到域名规则时的默认分类方式：</p>
+
+      <div class="control-group">
+        <label class="control-label">
+          <div class="switch">
+            <input type="checkbox" id="defaultEnableFileType" checked>
+            <span class="slider"></span>
+          </div>
+          <span id="fileTypeLabel">启用文件类型分类</span>
+        </label>
+
+        <label class="control-label">
+          <div class="switch">
+            <input type="checkbox" id="defaultEnableDate" checked>
+            <span class="slider"></span>
+          </div>
+          <span id="dateLabel">启用日期分类</span>
+        </label>
+      </div>
+
+      <div class="info-box">
+        <div class="info-title">
+          <span class="info-icon">ℹ️</span>
+          <span id="exampleTitle">默认路径示例</span>
+        </div>
+        <div class="info-text">
+          <span id="exampleDesc">当未匹配域名规则时，下载路径将按照以下方式组织：</span>
+          <div class="example-path" id="defaultPathExample">浏览器默认下载路径/Images/2023-10-15/image.jpg</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">
+      <i>🌐</i> <span id="domainRulesTitle">域名规则设置</span>
+    </div>
+    <div class="section-content">
+      <div id="domain-rules" class="rules-container">
+        <!-- 规则将通过JS动态添加 -->
+        <div class="rule">
+          <div class="rule-input">
+            <input type="text" placeholder="*.example.com" value="*.cmmrmedia.com">
+          </div>
+          <div class="rule-controls">
+            <div class="rule-toggle">
+              <label class="control-label">
+                <div class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </div>
+                <span class="toggle-label">类型</span>
+              </label>
+              <label class="control-label">
+                <div class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </div>
+                <span class="toggle-label">日期</span>
+              </label>
+            </div>
+            <div class="rule-actions">
+              <button class="remove-rule">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="rule">
+          <div class="rule-input">
+            <input type="text" placeholder="*.example.com" value="github.com">
+          </div>
+          <div class="rule-controls">
+            <div class="rule-toggle">
+              <label class="control-label">
+                <div class="switch">
+                  <input type="checkbox" checked>
+                  <span class="slider"></span>
+                </div>
+                <span class="toggle-label">类型</span>
+              </label>
+              <label class="control-label">
+                <div class="switch">
+                  <input type="checkbox">
+                  <span class="slider"></span>
+                </div>
+                <span class="toggle-label">日期</span>
+              </label>
+            </div>
+            <div class="rule-actions">
+              <button class="remove-rule">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button id="addRule"><i class="fas fa-plus"></i> <span id="addRuleText">添加域名规则</span></button>
+
+      <div class="info-box" style="margin-top: 20px; border-left-color: var(--light-primary);">
+        <div class="info-title">
+          <span class="info-icon">💡</span>
+          <span id="tipsTitle">使用提示</span>
+        </div>
+        <div class="info-text">
+          <ul>
+            <li id="tip1">使用 <strong>*.你的域名.com</strong> 匹配所有子域名</li>
+            <li id="tip2">路径支持多级目录，如 <strong>Work/Documents</strong></li>
+            <li id="tip3">禁用类型/日期分类后，文件将直接保存到域名目录</li>
+            <li id="tip4">规则按从上到下的顺序匹配，优先匹配第一个符合条件的规则</li>
+            <li id="tip5">拖拽规则可以调整匹配顺序</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="action-buttons">
+    <button id="save"><i class="fas fa-save"></i> <span id="saveText">保存设置</span></button>
+    <button id="reset"><i class="fas fa-redo"></i> <span id="resetText">恢复默认</span></button>
+  </div>
+
+  <div class="utils-section">
+    <h3 id="toolsTitle">数据工具</h3>
+    <p id="toolsDesc">导入/导出设置数据，用于备份或迁移</p>
+    <div class="utils-buttons">
+      <button id="exportBtn" class="import-export"><i class="fas fa-file-export"></i> <span id="exportText">导出设置</span></button>
+      <button id="importBtn" class="import-export"><i class="fas fa-file-import"></i> <span id="importText">导入设置</span></button>
+    </div>
+  </div>
+  
+  <!-- 谷歌商店介绍部分 -->
+  <div class="section" id="store-description" style="display: none;">
+    <div class="section-title">
+      <i>⭐</i> 谷歌商店介绍文案
+    </div>
+    <div class="section-content">
+      <div class="info-box">
+        <h3>Smart Download Organizer - Chrome 扩展</h3>
+        <p>告别杂乱的下载文件夹！Smart Download Organizer 智能整理您的下载内容，让一切井然有序。</p>
+        
+        <h4>主要功能：</h4>
+        <ul>
+          <li>按域名自动分类下载文件（例如：从 example.com 下载的文件保存到 Example/Documents/）</li>
+          <li>支持通配符域名规则（如 *.example.com）</li>
+          <li>按文件类型（图片、文档、压缩包等）和日期（YYYY-MM-DD）整理</li>
+          <li>灵活的自定义规则系统</li>
+          <li>直观的配置界面，支持多语言</li>
+          <li>高级文件类型识别，可自定义分类</li>
+        </ul>
+        
+        <h4>为什么选择我们？</h4>
+        <p>下载管理从未如此简单！Smart Download Organizer 会自动为您的下载内容创建合理的文件夹结构，无需手动整理。无论是工作文档、个人照片还是软件安装包，一切都会井然有序。</p>
+        
+        <p>安装 Smart Download Organizer，开始享受整洁有序的下载体验！</p>
+      </div>
+    </div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>
