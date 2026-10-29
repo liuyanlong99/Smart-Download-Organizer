@@ -1,0 +1,14 @@
+{
+  "extensionName": {
+    "message": "Smart Download Organizer - Download Path Rules",
+    "description": "Extension and store listing name."
+  },
+  "extensionDescription": {
+    "message": "Automatically organize new downloads by website, file type, and date, with custom path rules and local backups.",
+    "description": "Short description for the browser and extension stores."
+  },
+  "actionTitle": {
+    "message": "Download path settings",
+    "description": "Toolbar action tooltip."
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "extensionName": {
+    "message": "下载路径规则配置 - Smart Download Organizer",
+    "description": "Extension and store listing name."
+  },
+  "extensionDescription": {
+    "message": "下载时按域名、文件类型和日期自动创建目录，支持自定义路径规则与本地配置备份。",
+    "description": "Short description for the browser and extension stores."
+  },
+  "actionTitle": {
+    "message": "下载路径配置",
+    "description": "Toolbar action tooltip."
+  }
+}

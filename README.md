@@ -4,171 +4,187 @@
 
 <h1 align="center">Smart Download Organizer</h1>
 
-<p align="center">让新下载各归其位 · A place for every new download</p>
-<p align="center">免费开源 · Chrome / Microsoft Edge · 中文 / English</p>
+<p align="center">A place for every new download · 让新下载各归其位</p>
+<p align="center">Free and open source · Chrome / Microsoft Edge · English / 简体中文</p>
 <p align="center">
-  <a href="#简体中文">简体中文</a> ·
   <a href="#english">English</a> ·
+  <a href="#简体中文">简体中文</a> ·
   <a href="https://chromewebstore.google.com/detail/下载路径规则配置-smart-download-o/dihefcbongaiapidifokoklienncabko">Chrome Web Store</a> ·
   <a href="https://microsoftedge.microsoft.com/addons/detail/cpdapmdfjccinmcncpogpbolcboadgdh">Edge Add-ons</a> ·
+  <a href="https://github.com/liuyanlong99/Smart-Download-Organizer/releases/latest">Releases</a> ·
   <a href="LICENSE">MIT License</a>
 </p>
 
-## 简体中文
-
-Smart Download Organizer 在文件开始下载时，按照你设置的**来源域名、文件类型和日期规则**生成保存目录，减少下载后的手动整理。
-
-> **版本说明（2026-10-29）**：当前公开的 `main` 源码版本为 `1.0`。本文中的 `1.1.0` 新增内容属于开发预览，商店实际版本以各自页面为准。
-
-### 安装
-
-- [从 Chrome Web Store 安装](https://chromewebstore.google.com/detail/下载路径规则配置-smart-download-o/dihefcbongaiapidifokoklienncabko)
-- [从 Microsoft Edge Add-ons 安装](https://microsoftedge.microsoft.com/addons/detail/cpdapmdfjccinmcncpogpbolcboadgdh)
-
-新版源码与运行资源正在整理同步，建议普通用户先通过商店安装。获得完整开发目录后，可在 `chrome://extensions` 或 `edge://extensions` 开启开发者模式，选择“加载已解压的扩展程序”，加载含有 `manifest.json` 的目录。
-
-### 能做什么
-
-- **网站专属目录**：为不同域名设置独立目录名称，支持精确域名与 `*.example.com` 形式的通配符。
-- **按文件类型整理**：支持图片、文档、压缩包、视频、音频、代码、可执行文件和字体。
-- **按日期归档**：需要时在保存路径中加入日期目录。
-- **规则优先匹配**：按配置顺序应用第一条匹配的域名规则。
-- **配置备份与迁移**：导出或导入 JSON，便于备份和手动迁移。
-- **中英文界面**：可切换界面语言与内置分类目录名称。
-
-![按域名、文件类型和日期整理新下载的功能示意](docs/assets/overview-zh-CN.png)
-
-*上图为功能示意，非浏览器界面截图；实际路径取决于已保存的规则。*
-
-### 开始使用
-
-1. 在浏览器的扩展管理页打开本扩展的配置页面。
-2. 选择需要的文件类型、日期选项，或添加网站专属目录规则。
-3. 保存配置，再发起新的下载。
-
-例如，为 `example.com` 设置路径名称 `项目素材`，并为该规则开启文件类型和日期目录，中文界面中的图片可以保存到：
-
-```text
-浏览器默认下载目录/
-└── 项目素材/
-    └── 图片/
-        └── 2026-10-29/
-            └── example.jpg
-```
-
-已有文件保持原位。所有目录均位于浏览器默认下载目录下，不能直接指定任意磁盘绝对路径。
-
-### 1.1.0 开发预览
-
-新版的本地开发版本已包含以下调整，正在整理发布：
-
-- 分行卡片式设置页面，以及可立即启停整理的工具栏快捷浮窗。
-- 文件类型与域名路径规则使用独立弹窗，支持启停和路径预览。
-- 自定义文件分类及 `.tar.gz` 等复合后缀。
-- 独立的域名、分类日期选项和日期格式。
-- 保存按钮红点提示、配置导入导出与还原操作。
-- 新 logo，以及中英文商店名称和简短说明。
-
-新版中，域名与文件类型的单独配置优先于全局配置。要生成带日期的实际下载目录，需要确认命中的域名或分类规则已开启日期目录。
-
-**旧版升级**：请先导出一份 JSON 备份，再通过原商店条目更新。常见旧字段已有读取转换，迁移前自动备份、异常规则提示和部分缺失字段的兼容保护仍在完善。
-
-### 隐私与权限
-
-用户的目录规则、分类选项和界面语言保存在浏览器本地存储中。Chrome 与 Edge 的配置分别保存，需要跨浏览器迁移时可手动导出、导入 JSON。
-
-| 源码版本 | 申请的权限 |
-| --- | --- |
-| 1.0（当前公开源码） | `downloads`、`storage`、`history`、`tabs`、`webNavigation`、`activeTab` |
-| 1.1.0（开发预览） | `downloads`、`storage` |
-
-新版移除网页内容脚本，使用浏览器下载事件提供的文件名和来源网址在本机生成路径，不向开发者服务器上传下载信息，不自动云同步。安装时请以对应版本的权限提示和 `manifest.json` 为准。
-
-### 支持开发者
-
-本项目免费开源，所有功能均可直接使用。如果它对你有帮助，欢迎通过反馈问题、改进文档或提交代码支持维护。
-
-自愿打赏渠道正在准备，后续将提供国内二维码和海外支持链接。打赏用于支持持续维护与问题修复，与功能使用无关。
-
-### 反馈与参与
-
-欢迎通过 [GitHub Issues](https://github.com/liuyanlong99/Smart-Download-Organizer/issues) 反馈问题。请说明浏览器和扩展版本、相关开关、脱敏后的规则、期望路径与实际路径；请勿提交包含私人项目名或敏感网址的完整配置。
-
-欢迎修复问题、改善翻译和文档。项目采用 [MIT License](LICENSE)，第三方资源的许可随对应资源保留。
-
----
-
 ## English
 
-Smart Download Organizer creates folder paths for new downloads using the **source website, file type, and date rules** you choose.
-
-> **Version status — October 29, 2026:** the public `main` source is version `1.0`. Items described as `1.1.0` below are a development preview. Check each store page for its published version.
+Smart Download Organizer creates folders for new browser downloads using the source domain, file type and date rules you choose. All processing and settings stay in your browser.
 
 ### Install
 
-- [Install from the Chrome Web Store](https://chromewebstore.google.com/detail/下载路径规则配置-smart-download-o/dihefcbongaiapidifokoklienncabko)
-- [Install from Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/cpdapmdfjccinmcncpogpbolcboadgdh)
+- **From a store:** [Chrome Web Store](https://chromewebstore.google.com/detail/下载路径规则配置-smart-download-o/dihefcbongaiapidifokoklienncabko) or [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/cpdapmdfjccinmcncpogpbolcboadgdh).
+- **Load version 1.1.0 yourself:** download [smart-download-organizer-1.1.0.zip](https://github.com/liuyanlong99/Smart-Download-Organizer/releases/download/v1.1.0/smart-download-organizer-1.1.0.zip) from the [Release](https://github.com/liuyanlong99/Smart-Download-Organizer/releases/tag/v1.1.0).
 
-The updated source and runtime assets are being prepared for publication. Store installation is recommended for now. Once you have a complete development folder, open `chrome://extensions` or `edge://extensions`, enable Developer mode, and load the unpacked folder containing `manifest.json`.
+To load the ZIP in Chrome or Edge:
+
+1. Extract it to a folder you will keep on your computer.
+2. Open `chrome://extensions` or `edge://extensions`.
+3. Enable **Developer mode**, then click **Load unpacked**.
+4. Select the extracted folder containing `manifest.json`.
+5. Pin the extension and open its settings from the popup.
+
+The ZIP includes the extension's runtime files, bundled icons, licenses and installation instructions. No private keys, signing files or personal settings are included. It requires no build step or developer account.
 
 ### Features
 
-- **Website-specific folders:** assign a folder name to a domain, with exact-domain and `*.example.com` wildcard rules.
-- **File-type folders:** organize Images, Documents, Archives, Videos, Audio, Code, Executables, and Fonts.
-- **Date folders:** add a date to the destination when needed.
-- **Ordered rules:** the first matching domain rule takes priority.
-- **Local JSON backups:** export and import settings for backup or manual migration.
-- **English and Chinese:** switch the interface language and built-in category folder names.
+- **Domain rules:** use an exact domain or a wildcard such as `*.example.com`, and give it a custom folder name. An empty folder name uses the full matching domain.
+- **File type folders:** organize images, documents, archives, videos, audio, code, executables and fonts. Add your own categories and extensions, including compound extensions such as `.tar.gz`.
+- **Date folders:** select a format such as `YYYY-MM-DD` or `YYYY/MM/DD`, with independent controls for file types and domains.
+- **Quick control:** pause or resume organization from the extension popup.
+- **Path previews:** check the global settings or an individual rule before saving it.
+- **Backup and restore:** export settings to JSON and import them in another installation.
+- **English and Simplified Chinese:** switch the interface and built-in folder names.
 
-![Feature illustration showing website, file-type and date folders](docs/assets/overview-en.png)
+![Illustration of domain, file type and date folders](docs/assets/overview-en.png)
 
-*This is a feature illustration, not a captured browser screenshot. Actual paths depend on your saved rules.*
+*Feature illustration; the saved rules determine the actual path.*
 
-### Get started
+### Use and rule behavior
 
-1. Open the extension's settings from your browser's extension management page.
-2. Choose file-type and date options, or add a website-specific folder rule.
-3. Save your settings, then start a new download.
+Open the extension's settings, enable the folders you need, and click **Save**. The organization switch takes effect immediately. Changes apply to new downloads; files already on disk stay where they are.
 
-For example, a rule for `example.com` with the folder name `Project Assets`, file-type folders, and date folders enabled can produce:
+For example, a domain rule for `example.com` with the folder name `Project Assets`, file type folders enabled and date folders enabled can save an image to:
 
 ```text
-Default download directory/
-└── Project Assets/
-    └── Images/
-        └── 2026-10-29/
-            └── example.jpg
+Downloads/Project Assets/Images/2026-10-29/photo.jpg
 ```
 
-Existing files remain in place. Destinations are subfolders of the browser's default download directory; arbitrary absolute disk paths are not supported.
+- The first enabled domain rule that matches the download is used. Newly added rules appear at the top.
+- Domain settings take priority over global settings. A matching domain-specific file category takes priority over a global category.
+- An explicit date setting on a domain rule takes priority over a file category; otherwise the category or global setting applies.
+- The main preview shows the global controls. Rule previews show their individual overrides.
+- On a fresh installation, domain folders and category-specific date folders start off. Updating existing settings preserves the previous date behavior.
+- Paths are relative to the browser's download directory. The extension cannot select an arbitrary absolute path. A browser **Save as** dialog or another download extension can affect the final location.
 
-### Version 1.1.0 preview
+### Updating and transferring settings
 
-The local development version includes a redesigned settings page, a toolbar popup with an immediate on/off switch, separate file-type and domain dialogs, custom categories, compound extensions such as `.tar.gz`, individual date settings, a new logo, and localized store metadata.
+For an unpacked installation, back up settings, extract the new ZIP into the same extension folder, then click **Reload** on the browser's extensions page. Keep the same folder path when updating.
 
-Individual domain and category settings take precedence over global settings. To include a date in an actual download path, enable date folders in the matching rule or category.
+Older supported settings are validated and migrated automatically, with the original configuration backed up in local extension storage before migration. Invalid or newer, unsupported settings are preserved; the settings page offers export and import controls for recovery.
 
-Before upgrading, export a JSON backup and update through the existing store listing. Common legacy fields can already be read and converted; automatic pre-migration backups, invalid-rule reporting, and some missing-field compatibility protections are still being completed.
+Store and unpacked installations can have different extension IDs and separate storage. To transfer settings, export JSON from the old installation and import it into the new one. Leave one copy enabled when downloading.
 
 ### Privacy and permissions
 
-Rules and preferences are stored locally in the browser. Chrome and Edge keep separate settings; use JSON export/import to move them manually.
+The extension requests only:
 
-| Source version | Requested permissions |
+| Permission | Purpose |
 | --- | --- |
-| 1.0 — current public source | `downloads`, `storage`, `history`, `tabs`, `webNavigation`, `activeTab` |
-| 1.1.0 — development preview | `downloads`, `storage` |
+| `downloads` | Suggest a relative filename when a new download starts. |
+| `storage` | Save rules, language, switch state and a local migration backup. |
 
-Version 1.1.0 removes website content scripts. It processes browser-supplied download filenames and source URLs locally to construct paths, without uploading download information to the developer or automatically syncing settings to the cloud. Check the permissions and manifest for the version you install.
+It does not request page access, read page contents, run analytics or upload download information. Settings and migration backups remain in `chrome.storage.local`. Exported JSON files are saved only when you request them.
 
-### Support development
+### Development and support
 
-This project is free and open source. All features are available to everyone. You can support maintenance by reporting issues, improving documentation, or contributing code.
+Node.js is used for validation and tests. There are no npm dependencies.
 
-Optional tipping channels are being prepared, including domestic QR codes and an international support link. Tips will support maintenance and bug fixes; using the extension will remain independent of tipping.
+```sh
+npm run check
+```
 
-### Feedback and contributions
+Create the installable ZIP and its SHA-256 checksum in `dist/` with PowerShell:
 
-Please use [GitHub Issues](https://github.com/liuyanlong99/Smart-Download-Organizer/issues) for bug reports. Include your browser and extension versions, relevant settings, a redacted rule, and the expected and actual paths.
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-extension.ps1
+```
 
-Contributions to code, translations, and documentation are welcome. This project is licensed under the [MIT License](LICENSE). Keep the relevant notices when reusing third-party resources.
+Report a bug or suggest an improvement in [Issues](https://github.com/liuyanlong99/Smart-Download-Organizer/issues). Include the browser version, extension version and steps to reproduce it. Contributions and sharing the extension are welcome.
+
+The project is released under the [MIT License](LICENSE). Bundled Material Symbols use the [Apache License 2.0](icons/material/LICENSE).
+
+## 简体中文
+
+Smart Download Organizer 在文件开始下载时，根据来源域名、文件类型和日期规则生成保存目录。所有处理和配置都保存在浏览器本地。
+
+### 安装
+
+- **商店安装：**[Chrome Web Store](https://chromewebstore.google.com/detail/下载路径规则配置-smart-download-o/dihefcbongaiapidifokoklienncabko) 或 [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/cpdapmdfjccinmcncpogpbolcboadgdh)。
+- **自行加载 1.1.0：**在 [Release](https://github.com/liuyanlong99/Smart-Download-Organizer/releases/tag/v1.1.0) 下载 [smart-download-organizer-1.1.0.zip](https://github.com/liuyanlong99/Smart-Download-Organizer/releases/download/v1.1.0/smart-download-organizer-1.1.0.zip)。
+
+在 Chrome 或 Edge 中加载 ZIP：
+
+1. 将 ZIP 解压到准备长期保留的文件夹。
+2. 打开 `chrome://extensions` 或 `edge://extensions`。
+3. 开启**开发者模式**，点击**加载已解压的扩展程序**。
+4. 选择包含 `manifest.json` 的解压目录。
+5. 固定扩展图标，从弹出窗口打开设置。
+
+ZIP 包含运行文件、本地图标、许可证和安装说明，不含私钥、签名文件或个人配置，无需编译或注册开发者账号。
+
+### 功能
+
+- **域名路径规则：**支持精确域名和 `*.example.com` 通配符，可设置专属路径名称；留空时使用匹配到的完整域名。
+- **文件类型目录：**内置图片、文档、压缩包、视频、音频、代码、可执行文件和字体分类，也可以添加自定义分类及后缀，支持 `.tar.gz` 等复合后缀。
+- **日期目录：**支持 `YYYY-MM-DD`、`YYYY/MM/DD` 等格式，可按文件类型和域名单独设置。
+- **快捷开关：**在扩展小窗口中暂停或恢复自动整理。
+- **路径预览：**保存前查看全局配置或具体规则的路径效果。
+- **备份与恢复：**通过 JSON 文件备份配置，或迁移到其他安装。
+- **中英文切换：**切换界面语言和系统分类的目录名称。
+
+![按域名、文件类型和日期整理下载的功能示意](docs/assets/overview-zh-CN.png)
+
+*上图为功能示意，实际保存路径由已保存的规则决定。*
+
+### 使用和规则
+
+打开扩展设置，开启所需的目录选项后点击**保存**。自动整理总开关立即生效。规则用于新的下载，已有文件保持原位置。
+
+例如，为 `example.com` 设置路径名称 `项目素材`，开启文件类型和日期目录，图片可以保存到：
+
+```text
+下载目录/项目素材/图片/2026-10-29/photo.jpg
+```
+
+- 使用列表中第一条匹配且启用的域名规则，新添加的规则位于顶部。
+- 域名配置优先于全局配置；匹配的域名专属文件分类优先于全局分类。
+- 域名明确设置的日期规则优先于文件分类，否则使用分类或全局的日期配置。
+- 首页预览反映全局开关，规则中的预览反映该规则的单独配置。
+- 全新安装时，按域名创建目录和分类内的日期目录默认关闭；升级已有配置时保留原来的日期行为。
+- 路径基于浏览器的下载目录，不能指定任意绝对路径。浏览器“另存为”对话框或其他下载扩展可能影响最终位置。
+
+### 更新和配置迁移
+
+已解压安装的版本更新时，先备份配置，将新 ZIP 解压覆盖到同一个扩展目录，再在扩展管理页点击**重新加载**。更新时保留原文件夹路径。
+
+兼容的旧配置会经过校验并自动迁移，迁移前会在扩展本地存储中备份原始配置。遇到无效配置或不支持的更高版本配置时会保留原数据，设置页面提供导出和导入入口，便于修复。
+
+商店安装与自行加载的扩展可能具有不同 ID，配置存储也相互独立。迁移时，在旧扩展中导出 JSON，再到新扩展中导入；下载时保留一个扩展副本处于启用状态。
+
+### 隐私和权限
+
+扩展仅申请以下权限：
+
+| 权限 | 用途 |
+| --- | --- |
+| `downloads` | 在下载开始时建议相对保存路径。 |
+| `storage` | 保存规则、语言、开关状态及本地迁移备份。 |
+
+扩展不申请网页访问权限，不读取网页内容，不使用统计服务，也不上传下载信息。配置和迁移备份保存在 `chrome.storage.local`，只有手动导出时才会生成 JSON 文件。
+
+### 开发和反馈
+
+使用 Node.js 运行校验和测试，无需安装 npm 依赖：
+
+```sh
+npm run check
+```
+
+使用 PowerShell 生成可加载的 ZIP 和 SHA-256 校验文件，输出至 `dist/`：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/package-extension.ps1
+```
+
+遇到问题或有改进建议，请在 [Issues](https://github.com/liuyanlong99/Smart-Download-Organizer/issues) 中提供浏览器版本、扩展版本和复现步骤。欢迎参与改进或分享扩展。
+
+项目采用 [MIT 许可证](LICENSE)，内置 Material Symbols 图标采用 [Apache License 2.0](icons/material/LICENSE)。

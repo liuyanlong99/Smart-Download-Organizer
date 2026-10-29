@@ -1,0 +1,52 @@
+Smart Download Organizer 1.1.0
+
+ENGLISH
+
+Install in Chrome or Microsoft Edge
+1. Extract smart-download-organizer-1.1.0.zip to a folder you will keep.
+2. Open chrome://extensions or edge://extensions.
+3. Turn on Developer mode and select Load unpacked.
+4. Select the extracted folder containing manifest.json.
+5. Open the extension popup, then open settings and save your rules.
+
+No build step, signing key or developer account is required.
+This package contains runtime files and licenses, with no private keys or personal settings.
+Folders are created inside your browser's download directory for new downloads only.
+
+Update an unpacked installation
+Back up settings to JSON, extract the new package into the same extension folder,
+then click Reload on the browser's extensions page. Keep the folder at the same path.
+
+Move settings from a store installation
+Export JSON in the old installation and import it in the new installation.
+Store and unpacked extensions can have different IDs and separate local storage.
+Keep one copy enabled when downloading.
+
+Source, updates and feedback
+https://github.com/liuyanlong99/Smart-Download-Organizer
+https://github.com/liuyanlong99/Smart-Download-Organizer/releases
+https://github.com/liuyanlong99/Smart-Download-Organizer/issues
+
+简体中文
+
+在 Chrome 或 Microsoft Edge 中安装
+1. 将 smart-download-organizer-1.1.0.zip 解压到准备长期保留的文件夹。
+2. 打开 chrome://extensions 或 edge://extensions。
+3. 开启“开发者模式”，点击“加载已解压的扩展程序”。
+4. 选择包含 manifest.json 的解压目录。
+5. 打开扩展小窗口，进入设置并保存规则。
+
+无需编译、签名密钥或开发者账号。
+此包包含运行文件和许可证，不含私钥或个人配置。
+扩展只处理新的下载，目录位于浏览器下载目录内。
+
+更新已解压安装
+先导出 JSON 备份，将新包解压覆盖到同一个扩展目录，
+再在扩展管理页点击“重新加载”。请保留原来的文件夹路径。
+
+从商店版本迁移配置
+在旧扩展导出 JSON，再到新扩展中导入。
+商店版和自行加载的版本可能具有不同 ID，配置存储相互独立。
+下载时保留一个扩展副本处于启用状态。
+
+源码、更新和问题反馈见上方 GitHub 链接。

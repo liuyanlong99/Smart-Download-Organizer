@@ -1,0 +1,10 @@
+.popup-body { width: 360px; padding: 24px; }
+.popup-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.popup-brand-logo { display: block; width: 56px; height: 56px; object-fit: contain; flex: none; }
+.popup-body h1 { font-size: 27px; margin: 6px 0 0; }
+.popup-body .eyebrow { font-size: 10px; letter-spacing: .08em; }
+.popup-body .setting-row { padding: 18px; gap: 12px; }
+.popup-body .path-preview { padding: 18px; }
+.popup-body .example-path { font-size: 11px; line-height: 1.85; }
+.popup-body #openOptions { width: 100%; margin-top: 22px; }
+.popup-body #popupMessage { margin-top: 12px; min-height: 20px; text-align: center; }
