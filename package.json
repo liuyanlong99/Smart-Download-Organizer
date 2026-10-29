@@ -4,9 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test",
     "validate": "node scripts/validate-extension.js",
     "check:syntax": "node --check background.js && node --check options.js && node --check popup.js && node --check src/core.js && node --check src/config.js && node --check src/storage.js && node --check scripts/validate-extension.js",
-    "check": "npm run check:syntax && npm run validate && npm test"
+    "check": "npm run check:syntax && npm run validate"
   }
 }

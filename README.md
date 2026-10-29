@@ -86,7 +86,7 @@ It does not request page access, read page contents, run analytics or upload dow
 
 ### Development and support
 
-Node.js is used for validation and tests. There are no npm dependencies.
+Node.js is used for syntax and resource validation. There are no npm dependencies.
 
 ```sh
 npm run check
@@ -173,7 +173,7 @@ ZIP 包含运行文件、本地图标、许可证和安装说明，不含私钥�
 
 ### 开发和反馈
 
-使用 Node.js 运行校验和测试，无需安装 npm 依赖：
+使用 Node.js 运行语法和资源校验，无需安装 npm 依赖：
 
 ```sh
 npm run check
